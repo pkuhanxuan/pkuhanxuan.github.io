@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xuan Han</title>
+  <meta name="description" content="Personal homepage of Xuan Han, M.S. student at Peking University." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+
+    <!-- ===== Header: photo + name + links ===== -->
+    <header class="profile">
+      <!-- TODO: 把照片放到 images/ 文件夹，并改成你的文件名，如 images/profile.jpg -->
+      <img class="avatar" src="images/profile.svg" alt="Profile photo" />
+      <div class="intro">
+        <h1>Xuan Han <span class="cn-name">(韩萱)</span></h1>
+        <p class="tagline">M.S. Student, Peking University</p>
+        <p class="affil">
+          Industrial Embodied Intelligence Lab<br />
+          School of Advanced Manufacturing and Robotics
+        </p>
+        <nav class="links">
+          <a href="mailto:hanxuan20030422@gmail.com">Email</a>
+          <span class="sep">/</span>
+          <a href="https://github.com/xuanhan" target="_blank" rel="noopener">GitHub</a>
+          <!-- 有简历后，把下面两行注释删掉，并把 cv.pdf 放进本文件夹
+          <span class="sep">/</span>
+          <a href="cv.pdf">CV</a>
+          -->
+        </nav>
+      </div>
+    </header>
+
+    <!-- ===== About ===== -->
+    <section>
+      <h2>About</h2>
+      <p>
+        I am an incoming M.S. student at the
+        <strong>School of Advanced Manufacturing and Robotics, Peking University</strong>,
+        where I am fortunate to be advised by
+        <strong>Prof. Zhibo Pang</strong> in the
+        <a href="https://pku-pi-lab.github.io/" target="_blank" rel="noopener">Industrial Embodied Intelligence Lab</a>.
+        I received my B.Eng. from the
+        <strong>College of Engineering, Peking University</strong> in 2025.
+      </p>
+      <p>
+        My research focuses on <strong>dual-arm robot manipulation</strong> and
+        <strong>foundation models</strong> for embodied intelligence. I am broadly
+        interested in building robots that can learn general, dexterous manipulation
+        skills from large-scale data.
+      </p>
+    </section>
+
+    <!-- ===== Research Interests ===== -->
+    <section>
+      <h2>Research Interests</h2>
+      <ul>
+        <li>Dual-arm / bimanual robot manipulation</li>
+        <li>Foundation models for robotics and embodied AI</li>
+        <li>Imitation learning and large-scale robot data</li>
+      </ul>
+    </section>
+
+    <!-- ===== News ===== -->
+    <section>
+      <h2>News</h2>
+      <ul class="news">
+        <li><span class="date">2025</span> Started my M.S. at Peking University, joining the Industrial Embodied Intelligence Lab.</li>
+        <li><span class="date">2025</span> Received my B.Eng. from the College of Engineering, Peking University.</li>
+      </ul>
+    </section>
+
+    <!-- ===== Publications =====
+         先留个空位，等你有论文了把下面这条注释删掉、按格式往里加 -->
+    <!--
+    <section>
+      <h2>Publications</h2>
+      <ul class="pubs">
+        <li>
+          <span class="pub-title">Paper Title</span><br />
+          Authors. <em>Venue</em>, Year.
+          [<a href="#">PDF</a>] [<a href="#">Code</a>]
+        </li>
+      </ul>
+    </section>
+    -->
+
+    <footer>
+      <p>&copy; <span id="year"></span> Xuan Han. Last updated June 2026.</p>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

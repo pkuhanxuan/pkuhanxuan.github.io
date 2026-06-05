@@ -1,0 +1,122 @@
+:root {
+  --text: #222;
+  --muted: #666;
+  --link: #0066cc;
+  --rule: #e5e5e5;
+  --maxw: 760px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+    Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+}
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+/* ===== Header ===== */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 12px;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #f0f0f0;
+  flex-shrink: 0;
+}
+
+.intro h1 {
+  margin: 0 0 4px;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.cn-name {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.tagline {
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+
+.affil {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.links a {
+  color: var(--link);
+  text-decoration: none;
+}
+.links a:hover { text-decoration: underline; }
+.links .sep { color: #bbb; margin: 0 6px; }
+
+/* ===== Sections ===== */
+section { margin-top: 36px; }
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 6px;
+  margin-bottom: 14px;
+}
+
+p { margin: 0 0 14px; }
+
+a { color: var(--link); }
+
+ul { margin: 0; padding-left: 22px; }
+li { margin-bottom: 8px; }
+
+.news .date,
+.pubs .date {
+  display: inline-block;
+  min-width: 48px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.pub-title { font-weight: 600; }
+
+/* ===== Footer ===== */
+footer {
+  margin-top: 56px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 560px) {
+  .profile {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  .links .sep { margin: 0 4px; }
+  body { font-size: 16px; }
+}
