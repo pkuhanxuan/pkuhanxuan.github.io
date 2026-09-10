@@ -1,28 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xuan Han</title>
-  <meta name="description" content="Personal homepage of Xuan Han, M.S. student at Peking University." />
+  <title>Xuan Han | 韩萱</title>
+  <meta name="description" content="Personal homepage of Xuan Han (韩萱), M.S. student at Peking University. 北京大学硕士研究生韩萱的个人主页。" />
   <link rel="stylesheet" href="style.css" />
+  <!-- 首屏渲染前先定好语言，避免闪一下英文再切成中文 -->
+  <script>
+    (function () {
+      var l = null;
+      try { l = localStorage.getItem("lang"); } catch (e) {}
+      if (l !== "zh" && l !== "en") {
+        l = String(navigator.language || "en").toLowerCase().indexOf("zh") === 0 ? "zh" : "en";
+      }
+      document.documentElement.setAttribute("data-lang", l);
+      document.documentElement.setAttribute("lang", l === "zh" ? "zh-Hans" : "en");
+    })();
+  </script>
 </head>
 <body>
   <main class="container">
 
+    <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch language / 切换语言">
+      <span data-l="en">中文</span><span data-l="zh">English</span>
+    </button>
+
     <!-- ===== Header: photo + name + links ===== -->
     <header class="profile">
       <!-- TODO: 把照片放到 images/ 文件夹，并改成你的文件名，如 images/profile.jpg -->
-      <img class="avatar" src="images/profile.svg" alt="Profile photo" />
+      <img class="avatar" src="images/profile.svg" alt="Profile photo / 个人照片" />
       <div class="intro">
-        <h1>Xuan Han <span class="cn-name">(韩萱)</span></h1>
-        <p class="tagline">M.S. Student, Peking University</p>
+        <h1>
+          <span data-l="en">Xuan Han <span class="cn-name">(韩萱)</span></span>
+          <span data-l="zh">韩萱 <span class="cn-name">(Xuan Han)</span></span>
+        </h1>
+        <p class="tagline">
+          <span data-l="en">M.S. Student, Peking University</span>
+          <span data-l="zh">北京大学 硕士研究生</span>
+        </p>
         <p class="affil">
-          Industrial Embodied Intelligence Lab<br />
-          School of Advanced Manufacturing and Robotics
+          <span data-l="en">
+            Industrial Embodied Intelligence Lab<br />
+            School of Advanced Manufacturing and Robotics
+          </span>
+          <span data-l="zh">
+            物理智能实验室（PKU PI-Lab）<br />
+            先进制造与机器人学院
+          </span>
         </p>
         <nav class="links">
-          <a href="mailto:hanxuan20030422@gmail.com">Email</a>
+          <a href="mailto:hanxuan20030422@gmail.com"><span data-l="en">Email</span><span data-l="zh">邮箱</span></a>
           <span class="sep">/</span>
           <a href="https://github.com/pkuhanxuan" target="_blank" rel="noopener">GitHub</a>
           <!-- 有简历后，把下面两行注释删掉，并把 cv.pdf 放进本文件夹
@@ -35,94 +63,153 @@
 
     <!-- ===== About ===== -->
     <section>
-      <h2>About</h2>
-      <p>
-        I am an incoming M.S. student at the
-        <strong>School of Advanced Manufacturing and Robotics, Peking University</strong>,
-        where I am fortunate to be advised by
-        <strong>Prof. Zhibo Pang</strong> in the
-        <a href="https://pku-pi-lab.github.io/" target="_blank" rel="noopener">Industrial Embodied Intelligence Lab</a>.
-        I received my B.Eng. from the
-        <strong>College of Engineering, Peking University</strong> in 2025.
-      </p>
-      <p>
-        My research focuses on <strong>dual-arm robot manipulation</strong> and
-        <strong>foundation models</strong> for embodied intelligence. I am broadly
-        interested in building robots that can learn general, dexterous manipulation
-        skills from large-scale data.
-      </p>
+      <h2><span data-l="en">About</span><span data-l="zh">关于我</span></h2>
+
+      <div data-l="en">
+        <p>
+          I am an M.S. student at the
+          <strong>School of Advanced Manufacturing and Robotics, Peking University</strong>,
+          where I am fortunate to be advised by
+          <strong>Prof. Zhibo Pang</strong> in the
+          <a href="https://pku-pi-lab.github.io/" target="_blank" rel="noopener">Industrial Embodied Intelligence Lab</a>.
+          I received my B.Eng. from the
+          <strong>College of Engineering, Peking University</strong> in 2025.
+        </p>
+        <p>
+          My research focuses on <strong>dual-arm robot manipulation</strong> and
+          <strong>foundation models</strong> for embodied intelligence. I am broadly
+          interested in building robots that can learn general, dexterous manipulation
+          skills from large-scale data.
+        </p>
+      </div>
+
+      <div data-l="zh">
+        <p>我是<strong>北京大学先进制造与机器人学院</strong>的硕士研究生，师从<strong>庞智博教授</strong>，在<a
+          href="https://pku-pi-lab.github.io/" target="_blank" rel="noopener">物理智能实验室（PKU PI-Lab）</a>从事研究。2025
+          年本科毕业于<strong>北京大学工学院</strong>。</p>
+        <p>我的研究方向是<strong>双臂机器人操作</strong>与具身智能<strong>基础模型</strong>，关注如何让机器人从大规模数据中学到通用、灵巧的操作技能。</p>
+      </div>
     </section>
 
     <!-- ===== Research Interests ===== -->
     <section>
-      <h2>Research Interests</h2>
-      <ul>
+      <h2><span data-l="en">Research Interests</span><span data-l="zh">研究兴趣</span></h2>
+      <ul data-l="en">
         <li>Dual-arm / bimanual robot manipulation</li>
         <li>Foundation models for robotics and embodied AI</li>
         <li>Imitation learning and large-scale robot data</li>
+      </ul>
+      <ul data-l="zh">
+        <li>双臂 / 双手协同机器人操作</li>
+        <li>面向机器人与具身智能的基础模型</li>
+        <li>模仿学习与大规模机器人数据</li>
       </ul>
     </section>
 
     <!-- ===== News ===== -->
     <section>
-      <h2>News</h2>
-      <ul class="news">
+      <h2><span data-l="en">News</span><span data-l="zh">近况</span></h2>
+      <ul class="news" data-l="en">
         <li><span class="date">2026.09</span> <strong>ForceBench</strong>, our force-aware contact-rich manipulation benchmark, is under review &mdash; project page and leaderboard are live.</li>
         <li><span class="date">2026.08</span> <strong>DynamicWAM</strong> is on arXiv.</li>
         <li><span class="date">2026.07</span> <strong>CableSort</strong> was presented at the RSS 2026 Beyond Rigidity Workshop in Sydney.</li>
         <li><span class="date">2025</span> Started my M.S. at Peking University, joining the Industrial Embodied Intelligence Lab.</li>
         <li><span class="date">2025</span> Received my B.Eng. from the College of Engineering, Peking University.</li>
       </ul>
+      <ul class="news" data-l="zh">
+        <li><span class="date">2026.09</span> 力感知接触密集操作基准 <strong>ForceBench</strong> 投稿中，项目主页与榜单已上线。</li>
+        <li><span class="date">2026.08</span> <strong>DynamicWAM</strong> 已上传 arXiv。</li>
+        <li><span class="date">2026.07</span> <strong>CableSort</strong> 在悉尼举办的 RSS 2026 Beyond Rigidity Workshop 上发表。</li>
+        <li><span class="date">2025</span> 进入北京大学攻读硕士学位，加入物理智能实验室。</li>
+        <li><span class="date">2025</span> 本科毕业于北京大学工学院。</li>
+      </ul>
     </section>
 
     <!-- ===== Publications ===== -->
     <section>
-      <h2>Publications &amp; Preprints</h2>
+      <h2><span data-l="en">Publications &amp; Preprints</span><span data-l="zh">论文与预印本</span></h2>
       <ul class="pubs">
 
         <li>
           <span class="pub-title">ForceBench: A Force-Aware Contact-Rich Manipulation Benchmark</span><br />
           <span class="me">Xuan Han</span>*, Zinuo Jin*, Tianlin Li*, Xin Liu, Yuchen Xue, Shuhan Zhan,
           Yunfan Lou, Boxian Yao, Ruihai Wu, Zhibo Pang.<br />
-          <span class="pub-venue">Under review, 2026.</span>
-          <span class="pub-links">[<a href="https://forcebench-platform.github.io/" target="_blank" rel="noopener">Project Page</a>]
-          [<a href="https://forcebench-platform.github.io/leaderboard.html" target="_blank" rel="noopener">Leaderboard</a>]</span><br />
-          <span class="note">*Equal contribution.</span>
+          <span class="pub-venue">
+            <span data-l="en">Under review, 2026.</span>
+            <span data-l="zh">投稿中，2026。</span>
+          </span>
+          <span class="pub-links">[<a href="https://forcebench-platform.github.io/" target="_blank" rel="noopener"><span data-l="en">Project Page</span><span data-l="zh">项目主页</span></a>]
+          [<a href="https://forcebench-platform.github.io/leaderboard.html" target="_blank" rel="noopener"><span data-l="en">Leaderboard</span><span data-l="zh">榜单</span></a>]</span><br />
+          <span class="note"><span data-l="en">*Equal contribution.</span><span data-l="zh">*共同第一作者。</span></span>
         </li>
 
         <li>
           <span class="pub-title">DynamicWAM: Dual-Path Motion Conditioning for World&ndash;Action Models in Dynamic Manipulation</span><br />
           Yunfan Lou, Hewen Gao, Xiyu Zhu, Zhuoran Qiao, <span class="me">Xuan Han</span>,
           Yifan Yang, Yifan Ye, Boxian Yao, Zhibo Pang.<br />
-          <span class="pub-venue">arXiv preprint arXiv:2608.00793, 2026.</span>
-          <span class="pub-links">[<a href="https://dynamicwam.github.io/" target="_blank" rel="noopener">Project Page</a>]
+          <span class="pub-venue">
+            <span data-l="en">arXiv preprint arXiv:2608.00793, 2026.</span>
+            <span data-l="zh">arXiv 预印本 arXiv:2608.00793，2026。</span>
+          </span>
+          <span class="pub-links">[<a href="https://dynamicwam.github.io/" target="_blank" rel="noopener"><span data-l="en">Project Page</span><span data-l="zh">项目主页</span></a>]
           [<a href="https://arxiv.org/abs/2608.00793" target="_blank" rel="noopener">arXiv</a>]
-          [<a href="https://github.com/Autumn1337/DynamicWAM" target="_blank" rel="noopener">Code</a>]
-          [<a href="https://huggingface.co/KhalilGao/DynamicWAM" target="_blank" rel="noopener">Model</a>]</span>
+          [<a href="https://github.com/Autumn1337/DynamicWAM" target="_blank" rel="noopener"><span data-l="en">Code</span><span data-l="zh">代码</span></a>]
+          [<a href="https://huggingface.co/KhalilGao/DynamicWAM" target="_blank" rel="noopener"><span data-l="en">Model</span><span data-l="zh">模型</span></a>]</span>
         </li>
 
         <li>
           <span class="pub-title">CableSort: Force-Guided Dual-Arm Sorting of Stacked Cables Towards Physics Action Models</span><br />
           Yuxin Fu*, Haoran Han*, Boxian Yao*, Peiyu Zhu, <span class="me">Xuan Han</span>,
           Tianyou Zuo, Le Zhang, Zhibo Pang.<br />
-          <span class="pub-venue">RSS 2026 Workshop on Beyond Rigidity: Deformable and Articulated Robotic
-          Object Manipulation, Sydney, July 2026.</span>
+          <span class="pub-venue">
+            <span data-l="en">RSS 2026 Workshop on Beyond Rigidity: Deformable and Articulated Robotic
+            Object Manipulation, Sydney, July 2026.</span>
+            <span data-l="zh">RSS 2026 Beyond Rigidity: Deformable and Articulated Robotic Object
+            Manipulation Workshop，悉尼，2026 年 7 月。</span>
+          </span>
           <span class="pub-links">[<a href="https://rss2026-beyond-rigidity.github.io/accepted_papers/3_CableSort_Force_Guided_Dual_.pdf" target="_blank" rel="noopener">PDF</a>]
-          [<a href="https://rss2026-beyond-rigidity.github.io/" target="_blank" rel="noopener">Workshop</a>]
-          [<a href="https://github.com/HAORAN808/dual-arm-cable-manipulation" target="_blank" rel="noopener">Code</a>]</span>
+          [<a href="https://rss2026-beyond-rigidity.github.io/" target="_blank" rel="noopener"><span data-l="en">Workshop</span><span data-l="zh">研讨会</span></a>]
+          [<a href="https://github.com/HAORAN808/dual-arm-cable-manipulation" target="_blank" rel="noopener"><span data-l="en">Code</span><span data-l="zh">代码</span></a>]</span>
         </li>
 
       </ul>
     </section>
 
+    <!-- ===== Service ===== -->
+    <section>
+      <h2><span data-l="en">Service &amp; Leadership</span><span data-l="zh">社会工作</span></h2>
+      <ul class="service">
+        <li>
+          <span data-l="en"><strong>President</strong>, Engineering Science Innovation Association,
+          Peking University (北京大学工程科学创新协会).</span>
+          <span data-l="zh"><strong>北京大学工程科学创新协会 会长</strong>。</span>
+          <span class="pub-links">[<a href="https://mp.weixin.qq.com/s/R91wCJAqtMzHXjlYw3TS3w" target="_blank" rel="noopener"><span data-l="en">WeChat Feature</span><span data-l="zh">公众号推文</span></a>]</span>
+        </li>
+      </ul>
+    </section>
+
     <footer>
-      <p>&copy; <span id="year"></span> Xuan Han. Last updated September 2026.</p>
+      <p>
+        <span data-l="en">&copy; <span class="year"></span> Xuan Han. Last updated September 2026.</span>
+        <span data-l="zh">&copy; <span class="year"></span> 韩萱。最后更新于 2026 年 9 月。</span>
+      </p>
     </footer>
 
   </main>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    (function () {
+      var y = new Date().getFullYear();
+      var nodes = document.querySelectorAll(".year");
+      for (var i = 0; i < nodes.length; i++) nodes[i].textContent = y;
+
+      document.getElementById("lang-toggle").addEventListener("click", function () {
+        var next = document.documentElement.getAttribute("data-lang") === "zh" ? "en" : "zh";
+        document.documentElement.setAttribute("data-lang", next);
+        document.documentElement.setAttribute("lang", next === "zh" ? "zh-Hans" : "en");
+        try { localStorage.setItem("lang", next); } catch (e) {}
+      });
+    })();
   </script>
 </body>
 </html>

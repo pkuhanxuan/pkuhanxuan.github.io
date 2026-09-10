@@ -127,3 +127,35 @@ footer {
 .pubs .pub-links a { text-decoration: none; }
 .pubs .pub-links a:hover { text-decoration: underline; }
 .pubs .note { color: var(--muted); font-size: 0.85rem; }
+
+/* ===== Service ===== */
+.service li { margin-bottom: 8px; }
+
+/* ===== Bilingual (EN / 中文) ===== */
+html[data-lang="en"] [data-l="zh"],
+html[data-lang="zh"] [data-l="en"] { display: none !important; }
+
+.container { position: relative; }
+
+.lang-toggle {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  padding: 4px 12px;
+  font: inherit;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--muted);
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.lang-toggle:hover {
+  color: var(--link);
+  border-color: var(--link);
+}
+
+@media (max-width: 560px) {
+  .lang-toggle { top: 12px; right: 12px; }
+}
